@@ -53,7 +53,11 @@ TEST_CASE("Check write function - bad input") {
     CHECK_THROWS(Notebook1.write(1,10,96,Direction::Horizontal,"Hello"));
     CHECK_THROWS(Notebook1.write(1,367,99,Direction::Horizontal,"Hello"));
     CHECK_THROWS(Notebook1.write(1,72,100,Direction::Vertical,"Hello"));
-    CHECK_THROWS(Notebook1.write(1,-3,110,Direction::Vertical,"Hello"));  
+    Notebook1.write(5,1,6,Direction::Horizontal,"ariel");
+    CHECK_THROWS(Notebook1.write(5,1,8,Direction::Vertical,"Hello"));
+    CHECK_THROWS(Notebook1.write(6,3,11,Direction::Vertical," "));
+    CHECK_THROWS(Notebook1.write(10,4,10,Direction::Vertical,"\n"));
+
 }
 
 TEST_CASE("Check read function - bad input") {
